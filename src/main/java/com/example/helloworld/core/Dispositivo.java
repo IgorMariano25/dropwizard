@@ -19,7 +19,11 @@ public class Dispositivo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
+    // TO DO - nomear coluna das tabelas
+    @column(name = "", nullable =  false)
+    @column(name = "", nullable =  false)
+    @column(name = "", nullable =  false)
 
     public Dispositivo() {
     }
@@ -27,6 +31,10 @@ public class Dispositivo {
     public void setId(long id){
         this.id = id;
     }
+
+    // TO DO getters
+    // TO DO equals
+    // TO DO hashCode
 
     @Override
     public String toString() {
