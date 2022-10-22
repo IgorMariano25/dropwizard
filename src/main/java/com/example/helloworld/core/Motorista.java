@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
-import java.util.Objects;
 
 @Entity
 @Table(name = "Motorista")
@@ -20,10 +19,8 @@ public class Motorista {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private long id;
 
-    // TO DO - nomear coluna das tabelas
-    @column(name = "", nullable =  false)
-    @column(name = "", nullable =  false)
-    @column(name = "", nullable =  false)
+    @Column(name = "cnh", nullable =  false)
+    private String cnh;
 
     public Motorista() {
     }
@@ -36,6 +33,7 @@ public class Motorista {
     // TO DO equals
     // TO DO hashCode
 
+    // TODO: Adicionar mensagem de exibição neste método
     @Override
     public String toString() {
         String msg = "";

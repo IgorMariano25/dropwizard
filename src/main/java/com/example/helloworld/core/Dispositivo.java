@@ -20,10 +20,11 @@ public class Dispositivo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    // TO DO - nomear coluna das tabelas
-    @column(name = "", nullable =  false)
-    @column(name = "", nullable =  false)
-    @column(name = "", nullable =  false)
+    @Column(name = "tipo", nullable =  false)
+    private String tipo;
+
+    @Column(name = "sensores", nullable =  false)
+    private String sensores;
 
     public Dispositivo() {
     }
@@ -32,10 +33,43 @@ public class Dispositivo {
         this.id = id;
     }
 
-    // TO DO getters
-    // TO DO equals
-    // TO DO hashCode
+    public long getId() {
+        return this.id;
+    }
 
+    public String getTipo() {
+        return this.tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getSensores() {
+        return this.sensores;
+    }
+
+    public void setSensores(String sensores) {
+        this.sensores = sensores;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Dispositivo)) {
+            return false;
+        }
+        Dispositivo dispositivo = (Dispositivo) o;
+        return id == dispositivo.id && Objects.equals(tipo, dispositivo.tipo) && Objects.equals(sensores, dispositivo.sensores);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, tipo, sensores);
+    }
+
+    // TODO: Adicionar mensagem de exibição neste método
     @Override
     public String toString() {
         String msg = "";

@@ -20,10 +20,14 @@ public class Veiculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    // TO DO - nomear coluna das tabelas
-    @column(name = "", nullable =  false)
-    @column(name = "", nullable =  false)
-    @column(name = "", nullable =  false)
+    @Column(name = "numeroPlaca", nullable =  false)
+    private String numeroPlaca;
+
+    @Column(name = "tipoVeiculo", nullable =  false)
+    private String tipoVeiculo;
+
+    @Column(name = "tipoCarga", nullable =  false)
+    private String tipoCarga;
 
 
     public Veiculo() {
@@ -33,13 +37,53 @@ public class Veiculo {
         this.id = id;
     }
 
-    // TO DO getters
-    // TO DO equals
-    // TO DO hashCode
+    public long getId() {
+        return this.id;
+    }
 
+    public String getNumeroPlaca() {
+        return this.numeroPlaca;
+    }
+
+    public void setNumeroPlaca(String numeroPlaca) {
+        this.numeroPlaca = numeroPlaca;
+    }
+
+    public String getTipoVeiculo() {
+        return this.tipoVeiculo;
+    }
+
+    public void setTipoVeiculo(String tipoVeiculo) {
+        this.tipoVeiculo = tipoVeiculo;
+    }
+
+    public String getTipoCarga() {
+        return this.tipoCarga;
+    }
+
+    // TODO: Adicionar mensagem de exibição neste método
     @Override
     public String toString() {
         String msg = "";
         return msg;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Veiculo)) {
+            return false;
+        }
+        Veiculo veiculo = (Veiculo) o;
+        return id == veiculo.id && 
+        Objects.equals(numeroPlaca, veiculo.numeroPlaca) && 
+        Objects.equals(tipoVeiculo, veiculo.tipoVeiculo) && 
+        Objects.equals(tipoCarga, veiculo.tipoCarga);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, numeroPlaca, tipoVeiculo, tipoCarga);
     }
 }
